@@ -12,40 +12,67 @@ program Artemis;
 
 uses
   Forms,
-  untPrincipal in 'untPrincipal.pas' {frmPrincipal},
-  untdmDados in 'untdmDados.pas' {dmDados: TDataModule},
-  UnitCadBanco in 'UnitCadBanco.pas' {FrmCadBanco},
-  UnitCartao in 'UnitCartao.pas' {FrmCartao},
-  UnitCCorrente in 'UnitCCorrente.pas' {FrmCCorrente},
-  unitFunc in 'unitFunc.pas' {FrmFuncionario},
-  UnitLocFunc in 'UnitLocFunc.pas' {FrmLocFunc},
-  untLocFornec in 'untLocFornec.pas' {frmLocFornec},
-  untCargos in 'untCargos.pas' {frmCargos},
-  untCadFornec in 'untCadFornec.pas' {frmCadFornec},
-  untCadHistorico in 'untCadHistorico.pas' {frmCadHistorico},
-  untCadTipoDoc in 'untCadTipoDoc.pas' {frmCadTipoDoc},
-  untCadIndice in 'untCadIndice.pas' {frmCadIndice},
-  untCPagar in 'untCPagar.pas' {frmCPagar},
-  unitCreceber in 'UnitCReceber.pas' {frmCReceber};
+  UnitPrincipal in 'unitPrincipal.pas' {FrmPrincipal},
+  unitDmDados in 'UnitDmdados.pas' {dmdados: TDataModule},
+  unitCadCcusto in 'unitCadCcusto.pas' {FrmCCusto},
+  UnitHistorico in 'UnitHistorico.pas' {FrmHistorico},
+  unitCadBancos in 'unitCadBancos.pas' {FrmCadBancos},
+  unitCadTipoDoc in 'unitCadTipoDoc.pas' {FrmTipoDoc},
+  unitCcorrente in 'UnitCCorrente.pas' {FrmCCorrente},
+  unitCreceber in 'UnitCReceber.pas' {FrmCReceber},
+  unitSelecCR in 'unitSelecCR.pas' {FrmSelecCR},
+  UnitCancelCR in 'UnitCancelCR.pas' {FrmCancelCR},
+  unitLocHistorico in 'UnitLocHistorico.pas' {FrmLocHistorico},
+  unitLocCcusto in 'UnitLocCCusto.pas' {FrmLocCCusto},
+  unitLocTipoDoc in 'UnitLocTipoDoc.pas' {FrmLocTipoDoc},
+  UnitTipoReceb in 'UnitTipoReceb.pas' {FrmTipoReceb},
+  unitCpagar in 'unitCpagar.pas' {frmCpagar},
+  unitLocCpagar in 'unitLocCpagar.pas' {FrmLocCpagar},
+  UnitSelecCP in 'UnitSelecCP.pas' {FrmSelecCP},
+  unitLocCreceber in 'UnitLocCReceber.pas' {FrmLocCReceber},
+  UnitMovCaixa in 'UnitMovCaixa.pas' {FrmMovCaixa},
+  UnitFechCC in 'UnitFechCC.pas' {FrmFechCC},
+  UnitQRCliente in 'UnitQRCliente.pas' {QRCliente: TQuickRep},
+  UnitRelFornec in 'UnitRelFornec.pas' {FrmRelFornec},
+  UnitQRFornec in 'UnitQRFornec.pas' {QRFornec: TQuickRep},
+  UnitRelCReceber in 'UnitRelCReceber.pas' {FrmRelCReceber},
+  UnitQRCReceber in 'UnitQRCReceber.pas' {QRCreceber: TQuickRep},
+  unitRelCpagar in 'unitRelCpagar.pas' {frmRelCpagar},
+  unitQrCpagar in 'unitQrCpagar.pas' {QrCpagar},
+  unitQrImposto in 'unitQrImposto.pas' {QrImposto},
+  unitBalFin in 'unitBalFin.pas' {FrmBalFin},
+  unitQRBalFin in 'unitQRBalFin.pas' {qrBalFin: TQuickRep},
+  uitQrSaExtratos in 'uitQrSaExtratos.pas' {QrSaExtrato},
+  unitRelMovConta in 'unitRelMovConta.pas' {frmRelMovConta},
+  UnitCancelCP in 'UnitCancelCP.pas' {FrmCancelCP},
+  UnitSobre in 'UnitSobre.pas' {FrmSobre},
+  UnitRelCliente in 'UnitRelCliente.pas' {FrmRelCliente},
+  Unitbolbbv in 'Unitbolbbv.pas' {QRBOLETO},
+  UnitRelBoletoBBV in 'UnitRelBoletoBBV.pas' {FrmRelBoletoBBV},
+  Unitbolreal in 'Unitbolreal.pas' {QRBoleto1},
+  UnitRelBoletoReal in 'UnitRelBoletoReal.pas' {FrmRelBoletoReal},
+  UnitRelBoletoBBTXT in 'UnitRelBoletoBBTXT.pas' {FrmRelBoletoBBTXT},
+  UnitCadSenha in 'UnitCadSenha.pas' {frmCadSenha},
+  UnitCadCliente in 'UnitCadCliente.pas' {FrmCadCliente},
+  UnitCadFornec in 'UnitCadFornec.pas' {FrmCadFornec},
+  UnitLocFornec in 'unitLocFornec.pas' {FrmLocFornec},
+  unitParametro in 'unitParametro.pas' {FrmParametro},
+  unitLocCliente in 'unitLocCliente.pas' {frmLocCliente},
+  unitLibCredito in 'unitLibCredito.pas' {frmLibCred},
+  UnitBaixaLoteCR in 'UnitBaixaLoteCR.pas' {FrmBaixaLoteCR},
+  UnitDescParc in 'UnitDescParc.pas' {FrmDescParc},
+  UnitBaixaLoteCP in 'UnitBaixaLoteCP.pas' {FrmBaixaLoteCP},
+  UnitTipoPagto in 'UnitTipoPagto.pas' {FrmTipoPgto},
+  UnitCadCartao in 'UnitCadCartao.pas' {FrmCadCartao},
+  UnitFechCaixa in 'UnitFechCaixa.pas' {FrmFechCaixa};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TdmDados, dmDados);
-  Application.CreateForm(TFrmCadBanco, FrmCadBanco);
-  Application.CreateForm(TFrmCartao, FrmCartao);
-  Application.CreateForm(TFrmCCorrente, FrmCCorrente);
-  Application.CreateForm(TFrmFuncionario, FrmFuncionario);
-  Application.CreateForm(TFrmLocFunc, FrmLocFunc);
-  Application.CreateForm(TfrmLocFornec, frmLocFornec);
-  Application.CreateForm(TfrmCargos, frmCargos);
-  Application.CreateForm(TfrmCadFornec, frmCadFornec);
-  Application.CreateForm(TfrmCadHistorico, frmCadHistorico);
-  Application.CreateForm(TfrmCadTipoDoc, frmCadTipoDoc);
-  Application.CreateForm(TfrmCadIndice, frmCadIndice);
-  Application.CreateForm(TfrmCPagar, frmCPagar);
-  Application.CreateForm(TfrmCReceber, frmCReceber);
+  Application.Title := 'Artemis Vers�o 1.0';
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(Tdmdados, dmdados);
+  Application.CreateForm(TFrmFechCaixa, FrmFechCaixa);
   Application.Run;
 end.

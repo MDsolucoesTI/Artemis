@@ -1,6 +1,5 @@
 //////////////////////////////////////////////////////////////////////////
 // Criacao...........: 02/2001
-// Ultima modificacao: 03/2007
 // Sistema...........: Artemis - Controle de Financeiro
 // Integracao........: Olimpo - Automacao Comercial
 // Analistas.........: Marilene Esquiavoni & Denny Paulista Azevedo Filho
@@ -18,109 +17,115 @@ uses
   RXSplit, StdCtrls, DBCtrls, Mask, ToolEdit, RXDBCtrl, CurrEdit, SRColBtn,
   TFlatCheckBoxUnit, Spin, RackCtls, RxLookup, TFlatHintUnit,db, Variants,
   LMDCustomComponent, LMDCustomHint, LMDCustomShapeHint, LMDShapeHint,
-  RxGrdCpt, fcImager, TFlatSplitterUnit, lmdstdcA, RxDBComb, EMsgDlg,
-  fcLabel, LMDCustomControl, LMDCustomPanel, LMDCustomBevelPanel,
-  LMDCustomParentPanel, LMDBackPanel, JvComponent, JvTransBtn, JvPanel,
-  JvTransparentPanel, JvEnterTab, JvMaskEdit, JvSpin;
+  RxGrdCpt, fcImager, TFlatSplitterUnit, lmdstdcA, RxDBComb, EMsgDlg;
 
 type
-  TfrmCReceber = class(TForm)
-    LMDBackPanel2: TLMDBackPanel;
-    fcLabel1: TfcLabel;
-    LMDBackPanel1: TLMDBackPanel;
+  TFrmCReceber = class(TForm)
+    Panel9: TPanel;
+    btnDeletar: TfcImageBtn;
+    btnCancelar: TfcImageBtn;
+    btnAlterar: TfcImageBtn;
+    btnNovo: TfcImageBtn;
+    btnGravar: TfcImageBtn;
+    btnProximo: TfcImageBtn;
+    btnUltimo: TfcImageBtn;
+    btnPrimeiro: TfcImageBtn;
+    btnAnterior: TfcImageBtn;
+    Panel1: TPanel;
+    Image3: TImage;
+    btnSair: TfcImageBtn;
+    RxGradientCaption2: TRxGradientCaption;
+    Panel5: TPanel;
+    RxLabel4: TRxLabel;
+    RxLabel6: TRxLabel;
+    RxLabel8: TRxLabel;
+    Panel6: TPanel;
+    lbdiadesc: TRxLabel;
+    dbdiadesc: TDBDateEdit;
+    Panel7: TPanel;
+    RxLabel13: TRxLabel;
+    RxLabel15: TRxLabel;
+    lbdiamulta: TRxLabel;
+    dbdiamulta: TDBDateEdit;
+    dbevalormulta: TDBEdit;
+    dbepercmulta: TDBEdit;
+    Panel8: TPanel;
+    RxLabel17: TRxLabel;
+    RxLabel18: TRxLabel;
+    lbdiajuros: TRxLabel;
+    dbdiajuros: TDBDateEdit;
+    dbevalorjuros: TDBEdit;
+    dbepercjuros: TDBEdit;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    lbdoc: TRxLabel;
+    lbtipodocimento: TRxLabel;
+    lbcliente: TRxLabel;
+    lbhist: TRxLabel;
+    lbemissao: TRxLabel;
+    lbvenc: TRxLabel;
+    lbvalor: TRxLabel;
+    lbcentrocusto: TRxLabel;
+    RxLabel1: TRxLabel;
+    lbcompl: TRxLabel;
     dbeNumDoc: TDBEdit;
-    dblookTipo: TRxDBLookupCombo;
-    dblookCli: TRxDBLookupCombo;
-    dblookhist: TRxDBLookupCombo;
+    btnlocCli: TfcImageBtn;
     dbemissao: TDBDateEdit;
     dbvenc: TDBDateEdit;
     dbvalor: TRxDBCalcEdit;
+    btlocdoc: TfcImageBtn;
+    dblookTipo: TRxDBLookupCombo;
+    dblookCli: TRxDBLookupCombo;
+    dblookcusto: TRxDBLookupCombo;
+    dblookhist: TRxDBLookupCombo;
+    btLocHist: TfcImageBtn;
     dbSituacao: TDBEdit;
-    dbLookBanc: TDBLookupComboBox;
-    cmbPortador: TRxDBComboBox;
-    dbIntervalo: TEdit;
-    RxLabel5: TRxLabel;
-    RxLabel1: TRxLabel;
-    RxLabel7: TRxLabel;
+    dbcomplhist: TDBEdit;
+    Panel4: TPanel;
     RxLabel2: TRxLabel;
     RxLabel3: TRxLabel;
+    RxLabel7: TRxLabel;
     RxLabel16: TRxLabel;
     RxLabel19: TRxLabel;
-    RxLabel20: TRxLabel;
-    RxLabel21: TRxLabel;
-    RxLabel22: TRxLabel;
-    RxLabel23: TRxLabel;
-    RxLabel24: TRxLabel;
-    RxLabel25: TRxLabel;
-    dbRecebimento: TDBText;
-    LMDBackPanel4: TLMDBackPanel;
-    RxLabel10: TRxLabel;
-    RxLabel8: TRxLabel;
-    dbDtReceb: TDBDateEdit;
-    RxLabel4: TRxLabel;
-    dbDesc: TRxDBCalcEdit;
-    RxLabel6: TRxLabel;
-    dbJuros: TRxDBCalcEdit;
-    RxLabel9: TRxLabel;
+    FlatSplitter1: TFlatSplitter;
     dbVlReceb: TRxDBCalcEdit;
-    btnSim: TfcImageBtn;
     btnNao: TfcImageBtn;
-    LMDBackPanel3: TLMDBackPanel;
-    btnPrimeiro: TJvTransparentButton;
-    btnAnterior: TJvTransparentButton;
-    btnProximo: TJvTransparentButton;
-    btnUltimo: TJvTransparentButton;
-    btnNovo: TJvTransparentButton;
-    btnGravar: TJvTransparentButton;
-    btnCancelar: TJvTransparentButton;
-    btnAlterar: TJvTransparentButton;
-    btnDeletar: TJvTransparentButton;
-    btnLocalizar: TJvTransparentButton;
-    btnPagar: TJvTransparentButton;
-    btnRestaurar: TJvTransparentButton;
-    btnSair: TJvTransparentButton;
+    btnSim: TfcImageBtn;
+    dbDtReceb: TDBDateEdit;
+    RxLabel12: TRxLabel;
+    dbevalordesc: TDBEdit;
+    RxLabel11: TRxLabel;
+    dbeperc: TDBEdit;
+    RxLabel9: TRxLabel;
+    RxLabel10: TRxLabel;
     rbValor: TRadioButton;
     rbPerc: TRadioButton;
-    RxLabel11: TRxLabel;
-    RxLabel12: TRxLabel;
     RxLabel14: TRxLabel;
-    RxLabel13: TRxLabel;
-    RxLabel15: TRxLabel;
-    RxLabel17: TRxLabel;
-    RxLabel31: TRxLabel;
-    dbdiadesc: TDBDateEdit;
-    dbeperc: TDBEdit;
-    dbevalordesc: TDBEdit;
-    Bevel1: TBevel;
-    dbdiamulta: TDBDateEdit;
-    dbepercmulta: TDBEdit;
-    dbevalormulta: TDBEdit;
-    dbdiajuros: TDBDateEdit;
-    dbepercjuros: TDBEdit;
-    dbevalorjuros: TDBEdit;
-    RxLabel26: TRxLabel;
-    RxLabel27: TRxLabel;
-    RxLabel28: TRxLabel;
-    RxLabel29: TRxLabel;
-    RxLabel30: TRxLabel;
-    RxLabel32: TRxLabel;
-    RxLabel33: TRxLabel;
-    Bevel2: TBevel;
-    Bevel3: TBevel;
-    btnLocCli: TfcImageBtn;
-    JvTransparentPanel1: TJvTransparentPanel;
-    JvTransparentPanel2: TJvTransparentPanel;
-    RxLabel18: TRxLabel;
-    JvEnterAsTab1: TJvEnterAsTab;
-    MsgDlg: TEvMsgDlg;
-    dbComplHist: TDBEdit;
+    RxLabel20: TRxLabel;
     dbParcela: TLMDSpinEdit;
+    RxLabel21: TRxLabel;
+    btnLocalizar: TfcImageBtn;
+    cmbPortador: TRxDBComboBox;
+    RxLabel22: TRxLabel;
+    dbLookBanc: TDBLookupComboBox;
+    RxLabel23: TRxLabel;
+    RxLabel5: TRxLabel;
+    MsgDlg: TEvMsgDlg;
+    dbIntervalo: TEdit;
+    btnPagar: TfcImageBtn;
+    dbDesc: TRxDBCalcEdit;
+    dbJuros: TRxDBCalcEdit;
+    btnRestaurar: TfcImageBtn;
+    dbRecebimento: TDBText;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure dbeNumDocExit(Sender: TObject);
     procedure dbemissaoExit(Sender: TObject);
     procedure dbvalorExit(Sender: TObject);
     procedure dbvencExit(Sender: TObject);
+    procedure ImageBaixaClick(Sender: TObject);
     procedure BtnLocalizarClick(Sender: TObject);
+    procedure btlocdocClick(Sender: TObject);
     procedure BtnPrimeiroClick(Sender: TObject);
     procedure BtnAnteriorClick(Sender: TObject);
     procedure BtnProximoClick(Sender: TObject);
@@ -130,6 +135,8 @@ type
     procedure BtnCancelarClick(Sender: TObject);
     procedure BtnAlterarClick(Sender: TObject);
     procedure BtnDeletarClick(Sender: TObject);
+    procedure btlocCustoClick(Sender: TObject);
+    procedure btLocHistClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -143,15 +150,15 @@ type
     procedure btnPagarClick(Sender: TObject);
     procedure btnRestaurarClick(Sender: TObject);
     function GeraData(iData:TdateTime;iDias:integer):TDateTime;
+    procedure dbParcelaExit(Sender: TObject);
     procedure cmbPortadorExit(Sender: TObject);
     procedure cmbPortadorChange(Sender: TObject);
+    procedure dbParcelaChange(Sender: TObject);
     procedure btnNaoClick(Sender: TObject);
     procedure dbDtRecebExit(Sender: TObject);
     procedure dbDescExit(Sender: TObject);
     procedure dbJurosExit(Sender: TObject);
     procedure btnlocCliClick(Sender: TObject);
-    procedure btnLocDocClick(Sender: TObject);
-    procedure dbParcelaExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -159,13 +166,13 @@ type
   end;
 
 var
-  frmCReceber : TfrmCReceber;
-  NovoItem    : Boolean     ;
+  FrmCReceber: TFrmCReceber;
+  NovoItem:Boolean;
 
 implementation
 
-uses UnitLocCR, UntDmdados,UnitLocTipoDoc, UntLocPac,
-     untPrincipal, UnitTipoReceb;
+uses UnitLocCReceber, UnitDmdados,UnitLocTipoDoc, UnitLocCliente, UnitLocCCusto, UnitLocHistorico,
+     unitPrincipal, unitBaixaCreceber, UnitTipoReceb;
 
 {$R *.DFM}
 
@@ -215,22 +222,28 @@ begin
     GeraData:=iData+iDias;
 end;
 
-procedure TfrmCReceber.FormClose(Sender: TObject;
+procedure TFrmCReceber.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   frmPrincipal.statusteclas(False,'');
   dmDados.tbCReceber.Close;
   dmDados.tbHistorico.Close;
-  dmDados.tbCheque.Close;
-  dmdados.TbMovConta.Close;
-  dmDados.TbCCorrente.Close;
+  dmDados.tbCCusto.Close;
   dmDados.tbTipoDoc.Close;
-  dmDados.tbPaciente.Close;
-  dmDados.tbBanco.Close;
+  dmDados.tbCliente.Close;
   Action:= Cafree;
 end;
 
-procedure TfrmCReceber.dbeNumDocExit(Sender: TObject);
+procedure TFrmCReceber.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key=#13 then
+    begin
+    Key:=#0;
+    Perform(wm_nextdlgctl,0,0);
+    end;
+end;
+
+procedure TFrmCReceber.dbeNumDocExit(Sender: TObject);
 begin
   if NovoItem then
     if dbeNumDoc.Text='' then
@@ -240,7 +253,7 @@ begin
       end;
 end;
 
-procedure TfrmCReceber.dbemissaoExit(Sender: TObject);
+procedure TFrmCReceber.dbemissaoExit(Sender: TObject);
 begin
   if NovoItem then
     if dbemissao.Text= '  /  /    ' then
@@ -250,7 +263,7 @@ begin
       end;
 end;
 
-procedure TfrmCReceber.dbvalorExit(Sender: TObject);
+procedure TFrmCReceber.dbvalorExit(Sender: TObject);
 begin
   if NovoItem then
     if dbvalor.Text= '' then
@@ -260,7 +273,7 @@ begin
       end;
 end;
 
-procedure TfrmCReceber.dbvencExit(Sender: TObject);
+procedure TFrmCReceber.dbvencExit(Sender: TObject);
 var
   diasDesc : LongInt;
   diasMulta : LongInt;
@@ -268,23 +281,58 @@ var
 begin
   if dbVenc.text <> '  /  /    ' then
     begin
-    {diasDesc:=dmdados.TbParametroDescDia.Value;
+    diasDesc:=dmdados.TbParametroDescDia.Value;
     diasMulta:=dmdados.TbParametroMultaDia.Value;
     diasJuros:=dmdados.TbParametroJurosDia.Value;
     dmdados.tbCReceberDescDia.Value:=dmdados.tbCReceberDataVenc.Value - diasDesc;
     dmdados.tbCReceberMultaDia.Value:=dmdados.tbCReceberDataVenc.Value + diasMulta;
-    dmdados.tbCReceberJurosDia.Value:=dmdados.tbCReceberDataVenc.Value + diasJuros; }
+    dmdados.tbCReceberJurosDia.Value:=dmdados.tbCReceberDataVenc.Value + diasJuros;
     end;
 end;
 
-procedure TfrmCReceber.BtnLocalizarClick(Sender: TObject);
+procedure TFrmCReceber.ImageBaixaClick(Sender: TObject);
+begin
+  if dmdados.tbCReceberPago.value='PAGO' then
+    ShowMessage('Situa��o j� est� PAGA')
+  else
+    if (dmdados.tbCReceberPago.Value='ABERTO') then
+      begin
+      If application.MessageBox('Situa��o est� em Aberta, voc� quer mesmo PAGAR?','ATEN��O', mb_yesno+mb_iconquestion+mb_defbutton1+mb_applmodal) = id_yes then
+        begin
+        dmdados.tbCReceber.Edit;
+        FrmCReceber.Visible:=false;
+        FrmBaixaCReceber:=TFrmBaixaCReceber.Create(Application);
+        FrmBaixaCReceber.ShowModal;
+        end;
+      end
+    else
+      begin
+      dmdados.tbCReceber.Edit;
+      FrmCReceber.Visible:=false;
+      FrmBaixaCReceber:=TFrmBaixaCReceber.Create(Application);
+      FrmBaixaCReceber.ShowModal;
+      end;
+end;
+
+procedure TFrmCReceber.BtnLocalizarClick(Sender: TObject);
 begin
   FrmLocCReceber:=TFrmLocCReceber.create(application);
   FrmLocCReceber.showmodal;
   FrmLocCReceber.Free;
 end;
 
-procedure TfrmCReceber.BtnPrimeiroClick(Sender: TObject);
+procedure TFrmCReceber.btlocdocClick(Sender: TObject);
+begin
+  if (dmdados.tbCReceber.State=dsedit)or(dmdados.tbCReceber.State=dsInsert) then
+    begin
+    frmLocTipoDoc:=tfrmLocTipoDoc.create(application);
+    frmLocTipoDoc.showmodal;
+    dmdados.tbCReceberCodDoc.value:=frmlocTipoDoc.resultado;
+    frmLocTipoDoc.Free;
+    end;
+end;
+
+procedure TFrmCReceber.BtnPrimeiroClick(Sender: TObject);
 begin
   dmdados.tbCReceber.First;
   btnPrimeiro.Enabled:=False;
@@ -294,7 +342,7 @@ begin
   dmDados.vTabStt:=True;
 end;
 
-procedure TfrmCReceber.BtnAnteriorClick(Sender: TObject);
+procedure TFrmCReceber.BtnAnteriorClick(Sender: TObject);
 begin
   dmdados.tbCreceber.Prior;
   btnProximo.Enabled:=True;
@@ -307,7 +355,7 @@ begin
   dmDados.vTabStt:=True;
 end;
 
-procedure TfrmCReceber.BtnProximoClick(Sender: TObject);
+procedure TFrmCReceber.BtnProximoClick(Sender: TObject);
 begin
   dmdados.tbCReceber.next;
   btnPrimeiro.Enabled:=True;
@@ -320,7 +368,7 @@ begin
   dmDados.vTabStt:=True;
 end;
 
-procedure TfrmCReceber.BtnUltimoClick(Sender: TObject);
+procedure TFrmCReceber.BtnUltimoClick(Sender: TObject);
 begin
   dmdados.tbCReceber.Last;
   btnPrimeiro.Enabled:=True;
@@ -330,7 +378,7 @@ begin
   dmDados.vTabStt:=True;
 end;
 
-procedure TfrmCReceber.BtnNovoClick(Sender: TObject);
+procedure TFrmCReceber.BtnNovoClick(Sender: TObject);
 begin
   dmdados.tbCReceber.Append;
   NovoItem:=True;
@@ -351,13 +399,16 @@ begin
   dbeNumDoc.Enabled:=true;
   DblookTipo.Enabled:= True;
   dblookCli.Enabled:=True;
+  dblookcusto.Enabled:=true;
   dblookhist.Enabled:=true;
   dbComplHist.Enabled:=True;
   dbEmissao.Enabled:=True;
   dbVenc.Enabled:=true;
   dbvalor.Enabled:=True;
   dbParcela.Enabled:=True;
+  //dbIntervalo.Enabled:=True;
   cmbPortador.Enabled:=True;
+  //dbLookBanc.Enabled:=True;
   DBDiaDesc.Enabled:=true;
   dbDiaMulta.Enabled:=true;
   dbDiajuros.Enabled:=true;
@@ -369,7 +420,7 @@ begin
   dbeNumDoc.SetFocus;
 end;
 
-procedure TfrmCReceber.BtnGravarClick(Sender: TObject);
+procedure TFrmCReceber.BtnGravarClick(Sender: TObject);
 Var
   Campos:String;
   NumDoc,CodDoc,CodHist,CompHist,CodcCusto,Portador,NumBanco : string;
@@ -526,18 +577,13 @@ begin
     BtnUltimo.Enabled:=True;
     BtnAlterar.Enabled:=True;
     Btndeletar.Enabled:=True;
-    btnLocalizar.Enabled:=True;
     btnPagar.Enabled:=True;
     btnRestaurar.Enabled:=True;
-    if (frmPrincipal.Acesso=1) then
-      btnDeletar.Enabled := True
-    else
-      btnDeletar.Enabled := False;
     {desabilitando os componentes}
-    dbParcela.Value := 1;
     dbeNumDoc.Enabled:=false;
     DblookTipo.Enabled:= false;
     dblookcli.Enabled:=false;
+    dblookcusto.Enabled:=false;
     dblookhist.Enabled:=false;
     dbComplHist.Enabled:=false;
     dbEmissao.Enabled:=false;
@@ -547,6 +593,7 @@ begin
     dbIntervalo.Enabled:=False;
     cmbPortador.Enabled:=False;
     dbLookBanc.Enabled:=False;
+    dbSituacao.Enabled:=false;
     DBDiaDesc.Enabled:=false;
     dbeValorDesc.Enabled:=False;
     dbeValorMulta.Enabled:=false;
@@ -570,7 +617,7 @@ begin
     end;
 end;
 
-procedure TfrmCReceber.BtnCancelarClick(Sender: TObject);
+procedure TFrmCReceber.BtnCancelarClick(Sender: TObject);
 begin
   NovoItem:=False;
   dmdados.vTabStt:=True;
@@ -587,14 +634,11 @@ begin
   btnLocalizar.Enabled:=True;
   btnPagar.Enabled:=True;
   btnRestaurar.Enabled:=True;
-  if (frmPrincipal.Acesso=1) then
-    btnDeletar.Enabled := True
-  else
-    btnDeletar.Enabled := False;
   {desabilitando os objetos}
   dbeNumDoc.Enabled:=False;
   DblookTipo.Enabled:= false;
   dblookcli.Enabled:=false;
+  dblookcusto.Enabled:=false;
   dblookhist.Enabled:=false;
   dbComplHist.Enabled:=false;
   dbEmissao.Enabled:=false;
@@ -604,6 +648,7 @@ begin
   dbIntervalo.Enabled:=False;
   cmbPortador.Enabled:=False;
   dbLookBanc.Enabled:=False;
+  dbSituacao.Enabled:=false;
   DBDiaDesc.Enabled:=false;
   dbDiaMulta.Enabled:=false;
   dbDiajuros.Enabled:=false;
@@ -617,17 +662,16 @@ begin
   dbePercJuros.Enabled:=False;
   rbValor.Enabled:=false;
   rbPerc.Enabled:=false;
-  LMDBackPanel3.SetFocus;
+  Panel4.SetFocus;
 end;
 
-procedure TfrmCReceber.BtnAlterarClick(Sender: TObject);
+procedure TFrmCReceber.BtnAlterarClick(Sender: TObject);
 begin
   if dmdados.tbCReceber.RecordCount=0 then
     MsgDlg.MsgInformation('Tabela sem registro')
   else
     begin
     NovoItem:=True;
-    dmDados.tbCReceber.Edit;
     {habilitando os bot�es}
     BtnGravar.Enabled := true;
     BtnCancelar.Enabled:=true;
@@ -645,6 +689,7 @@ begin
     dbeNumDoc.Enabled:=true;
     DblookTipo.Enabled:= True;
     dblookCli.Enabled:=True;
+    dblookcusto.Enabled:=true;
     dblookhist.Enabled:=true;
     dbComplHist.Enabled:=True;
     dbEmissao.Enabled:=True;
@@ -664,7 +709,7 @@ begin
     end;
 end;
 
-procedure TfrmCReceber.BtnDeletarClick(Sender: TObject);
+procedure TFrmCReceber.BtnDeletarClick(Sender: TObject);
 begin
   if dmdados.tbCReceber.RecordCount=0 then
     MsgDlg.MsgInformation('Tabela sem registro')
@@ -673,19 +718,36 @@ begin
       dmdados.tbCReceber.Delete
 end;
 
-procedure TfrmCReceber.FormShow(Sender: TObject);
+procedure TFrmCReceber.btlocCustoClick(Sender: TObject);
 begin
-  FrmPrincipal.StatusTeclas(True,'[F2] Loc.Doc [F3] Loc.Cliente [F6] Baixa [F7] Restaurar [F9] Localizar [Esc] Cancelar ou Sair');
-  dmDados.HabilitaTeclado := True;
-  dmDados.vTabStt := True;
+  if (dmdados.tbCReceber.State=dsedit)or(dmdados.tbCReceber.State=dsInsert) then
+    begin
+    frmLocCcusto:=tfrmLocCcusto.create(application);
+    frmLocCcusto.showmodal;
+    dmdados.tbCReceberCodCCusto.Value:=frmLocCcusto.resultado;
+    frmLocCcusto.free;
+    end;
+end;
+
+procedure TFrmCReceber.btLocHistClick(Sender: TObject);
+begin
+  if (dmdados.tbCReceber.State=dsedit)or(dmdados.tbCReceber.State=dsInsert) then
+    begin
+    frmLocHistorico:=tfrmLocHistorico.create(application);
+    frmLocHistorico.showmodal;
+    dmdados.tbCReceberCodHist.Value:=frmLocHistorico.resultado;
+    frmLocHistorico.free;
+    end;
+end;
+
+procedure TFrmCReceber.FormShow(Sender: TObject);
+begin
+  FrmPrincipal.StatusTeclas(True,'[F2] Loc.Doc [F3] Loc.Cli [F4] Loc.CCusto [F5] Loc.Hist [F6] Baixa [F7] Restaurar [F9] Localizar [Esc] Cancelar ou Sair');
   dmDados.tbHistorico.Open;
-  dmDados.tbCheque.Open;
-  dmdados.TbMovConta.Open;
-  dmDados.TbCCorrente.Open;
+  dmDados.tbCCusto.Open;
   dmDados.tbTipoDoc.Open;
-  dmDados.tbPaciente.Open;
+  dmDados.tbCliente.Open;
   dmDados.tbCReceber.Open;
-  dmDados.tbBanco.Open;
   if dmdados.TbCreceber.RecordCount=0 then
     begin
     Btnprimeiro.Enabled:=False;
@@ -699,69 +761,61 @@ begin
     btnPagar.Enabled:=False;
     btnRestaurar.Enabled:=False;
     end;
-  if (frmPrincipal.Acesso=1) then
-    btnDeletar.Enabled := True
-  else
-    btnDeletar.Enabled := False;
 end;
 
-procedure TfrmCReceber.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TFrmCReceber.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+if dmdados.HabilitaTeclado then
     case (key) of
       // Teclas de a��o na tabela
       VK_Insert : if (dmDados.vTabStt) then BtnNovo.Click;
       VK_Home   : if (dmDados.vTabStt) then BtnAlterar.Click;
-      VK_Delete : if ((dmDados.vTabStt) and (frmPrincipal.Acesso = 1))
-                 then btnDeletar.Click;
+      VK_Delete : if (dmDados.vTabStt) then BtnDeletar.Click;
       VK_End    : if not(dmDados.vTabStt) then btnGravar.Click;
       VK_ESCAPE : if not(dmDados.vTabStt) then BtnCancelar.Click
                   else BtnSair.Click;
+      VK_F2     : btLocDoc.Click;
       VK_F3     : btnlocCli.Click;
+      VK_f5     : btlocHist.Click;
       VK_F6     : if (dmDados.vTabStt) then btnPagar.Click;
       VK_F7     : if (dmDados.vTabStt) then btnRestaurar.Click;
     end;
 end;
 
-procedure TfrmCReceber.rbValorClick(Sender: TObject);
+procedure TFrmCReceber.rbValorClick(Sender: TObject);
 begin
   dbeValorDesc.Enabled:=true;
   dbeValorMulta.Enabled:=true;
   dbeValorJuros.Enabled:=true;
-  //dmDados.tbCReceberDescDia.Value    := dbvenc.Date - dmDados.TbParametroDescDia.Value ;
-  //dmDados.tbCReceberMultaDia.Value   := dbvenc.Date + dmDados.TbParametroMultaDia.Value;
-  //dmDados.tbCReceberJurosDia.Value   := dbvenc.Date + dmDados.TbParametroJurosDia.Value;
-  //dmdados.tbCReceberValorMulta.Value := dmdados.TbParametroValorMulta.Value            ;
-  //dmdados.tbCReceberValorDesc.Value  := dmdados.TbParametroValorDesc.Value             ;
-  //dmdados.tbCReceberValorJuros.Value := dmdados.TbParametroValorJuros.Value            ;
-  dmdados.tbCReceberPercMulta.Value  := 0                                              ;
-  dmdados.tbCReceberPercDesc.Value   := 0                                              ;
-  dmdados.tbCReceberPercJuros.Value  := 0                                              ;
+  dmdados.tbCReceberValorMulta.Value:=dmdados.TbParametroValorMulta.Value;
+  dmdados.tbCReceberValorDesc.Value:=dmdados.TbParametroValorDesc.Value;
+  dmdados.tbCReceberValorJuros.Value:=dmdados.TbParametroValorJuros.Value;
+  dmdados.tbCReceberPercMulta.Value:=0;
+  dmdados.tbCReceberPercDesc.Value:=0;
+  dmdados.tbCReceberPercJuros.Value:=0;
   dbePerc.Enabled:=false;
   dbePercMulta.Enabled:=false;
   dbePercjuros.Enabled:=false;
 end;
 
-procedure TfrmCReceber.rbPercClick(Sender: TObject);
+procedure TFrmCReceber.rbPercClick(Sender: TObject);
 begin
   dbePerc.Enabled:=true;
   dbePercMulta.Enabled:=true;
   dbePercjuros.Enabled:=true;
-  //dmDados.tbCReceberDescDia.Value    := dbvenc.Date - dmDados.TbParametroDescDia.Value ;
-  //dmDados.tbCReceberMultaDia.Value   := dbvenc.Date + dmDados.TbParametroMultaDia.Value;
-  //dmDados.tbCReceberJurosDia.Value   := dbvenc.Date + dmDados.TbParametroJurosDia.Value;
-  //dmdados.tbCReceberPercDesc.Value   := dmdados.TbParametroPercDesc.Value              ;
-  //dmdados.tbCReceberPercMulta.Value  := dmdados.TbParametroPercMulta.Value             ;
-  //dmdados.tbCReceberPercJuros.Value  := dmdados.TbParametroPercMulta.Value             ;
-  dmdados.tbCReceberValorMulta.Value := 0                                              ;
-  dmdados.tbCReceberValorDesc.Value  := 0                                              ;
-  dmdados.tbCReceberValorJuros.Value := 0                                              ;
+  dmdados.tbCReceberPercDesc.Value:=dmdados.TbParametroPercDesc.Value;
+  dmdados.tbCReceberPercMulta.Value:=dmdados.TbParametroPercMulta.Value;
+  dmdados.tbCReceberPercJuros.Value:=dmdados.TbParametroPercMulta.Value;
+  dmdados.tbCReceberValorMulta.Value:=0;
+  dmdados.tbCReceberValorDesc.Value:=0;
+  dmdados.tbCReceberValorJuros.Value:=0;
   dbeValorDesc.Enabled:=false;
   dbeValorMulta.Enabled:=false;
   dbeValorJuros.Enabled:=false;
 end;
 
-procedure TfrmCReceber.dbdiadescExit(Sender: TObject);
+procedure TFrmCReceber.dbdiadescExit(Sender: TObject);
 begin
   try StrToDate(dbdiadesc.text)
   except on EConvertError do
@@ -772,7 +826,7 @@ begin
   end;
 end;
 
-procedure TfrmCReceber.dbdiamultaExit(Sender: TObject);
+procedure TFrmCReceber.dbdiamultaExit(Sender: TObject);
 begin
   try StrToDate(dbdiamulta.text)
   except on EConvertError do
@@ -783,7 +837,7 @@ begin
   end;
 end;
 
-procedure TfrmCReceber.dbdiajurosExit(Sender: TObject);
+procedure TFrmCReceber.dbdiajurosExit(Sender: TObject);
 begin
   try StrToDate(dbdiajuros.text)
   except on EConvertError do
@@ -794,7 +848,7 @@ begin
   end;
 end;
 
-procedure TfrmCReceber.btnSimClick(Sender: TObject);
+procedure TFrmCReceber.btnSimClick(Sender: TObject);
 begin
   FrmTipoReceb:=TFrmTipoReceb.create(application);
   FrmTipoReceb.showmodal;
@@ -825,7 +879,7 @@ begin
     dbDesc.Enabled:=False;
     dbJuros.Enabled:=False;
     dbVlReceb.Enabled:=False;
-    LMDBackPanel3.SetFocus;
+    Panel4.SetFocus;
     end
   else
     begin
@@ -834,14 +888,14 @@ begin
     end;
 end;
 
-procedure TfrmCReceber.btnSairClick(Sender: TObject);
+procedure TFrmCReceber.btnSairClick(Sender: TObject);
 begin
   if (dmdados.tbCReceber.State=dsedit)or(dmdados.tbCReceber.State=dsInsert) then
     dmDados.tbCReceber.Cancel;
   Close;
 end;
 
-procedure TfrmCReceber.btnPagarClick(Sender: TObject);
+procedure TFrmCReceber.btnPagarClick(Sender: TObject);
 begin
   if dmdados.tbCReceberPago.value='PAGO' then
     MsgDlg.MsgInformation('T�tulo j� est� PAGO')
@@ -873,7 +927,7 @@ begin
     end;
 end;
 
-procedure TfrmCReceber.btnRestaurarClick(Sender: TObject);
+procedure TFrmCReceber.btnRestaurarClick(Sender: TObject);
 var
   ano,mes,dia : word;
   mesCusto,anoCusto,Conta,Custo : string;
@@ -914,6 +968,12 @@ begin
         mesCusto:=IntToStr(mes);
         anoCusto:=IntTostr(ano);
         Custo:=dmdados.tbCReceberCodCCusto.Value;
+        if dmdados.TbBalCusto.Locate('CodCcusto;Mes;Ano',VarArrayOf([Custo,mesCusto,anoCusto]),[]) then
+          begin
+          dmdados.tbBalcusto.edit;
+          dmdados.tbBalcustoReceitas.value:=dmdados.tbBalcustoReceitas.value-dmdados.tbCReceberValorPago.Value;
+          dmdados.tbBalCusto.Post;
+          end;
         dmdados.tbCReceber.Edit;
         dmdados.tbCReceberDataPaga.Clear;
         dmdados.tbCReceberValorPago.Clear;
@@ -925,7 +985,15 @@ begin
         end;
 end;
 
-procedure TfrmCReceber.cmbPortadorExit(Sender: TObject);
+procedure TFrmCReceber.dbParcelaExit(Sender: TObject);
+begin
+  if dbParcela.Value > 1 then
+    dbIntervalo.Enabled:=True
+  else
+    dbIntervalo.Enabled:=False;
+end;
+
+procedure TFrmCReceber.cmbPortadorExit(Sender: TObject);
 begin
   if cmbPortador.Text='Cobran�a Banc�ria' then
     dbLookBanc.Enabled:=True
@@ -933,7 +1001,7 @@ begin
     dbLookBanc.Enabled:=False;
 end;
 
-procedure TfrmCReceber.cmbPortadorChange(Sender: TObject);
+procedure TFrmCReceber.cmbPortadorChange(Sender: TObject);
 begin
   if cmbPortador.Text='Cobran�a Banc�ria' then
     dbLookBanc.Enabled:=True
@@ -941,7 +1009,15 @@ begin
     dbLookBanc.Enabled:=False;
 end;
 
-procedure TfrmCReceber.btnNaoClick(Sender: TObject);
+procedure TFrmCReceber.dbParcelaChange(Sender: TObject);
+begin
+  if dbParcela.Value > 1 then
+    dbIntervalo.Enabled:=True
+  else
+    dbIntervalo.Enabled:=False;
+end;
+
+procedure TFrmCReceber.btnNaoClick(Sender: TObject);
 begin
   NovoItem:=False;
   dmdados.vTabStt:=True;
@@ -965,13 +1041,13 @@ begin
   dbDesc.Enabled:=False;
   dbJuros.Enabled:=False;
   dbVlReceb.Enabled:=False;
-  LMDBackPanel3.SetFocus;
+  Panel4.SetFocus;
 end;
 
-procedure TfrmCReceber.dbDtRecebExit(Sender: TObject);
+procedure TFrmCReceber.dbDtRecebExit(Sender: TObject);
 Var
-  VlAtual, Multa, Juros, Desco, VlDesc, VlMu, VlJu,PJu : Real;
-  DtVen, DtDesc, DtMu, DtJu, DtPg : TDateTime;
+  VlAtual, Multa, Juros, Desco, VlDesc, VlMu, VlJu,PJu: Real;
+  DtVen, DtDesc, DtMu, DtJu, DtPg: TDateTime;
   PDesc, Pmu : Real;
   Dias:longint;
   flag:boolean;
@@ -1041,51 +1117,26 @@ if NovoItem then
   end;
 end;
 
-procedure TfrmCReceber.dbDescExit(Sender: TObject);
+procedure TFrmCReceber.dbDescExit(Sender: TObject);
 begin
   if NovoItem then
     dmDados.tbCReceberValorPago.Value:=dmDados.tbCReceberValor.Value-dbDesc.Value;
 end;
 
-procedure TfrmCReceber.dbJurosExit(Sender: TObject);
+procedure TFrmCReceber.dbJurosExit(Sender: TObject);
 begin
   if NovoItem then
-    dmDados.tbCReceberValorPago.Value:=dmDados.tbCReceberValor.Value+dbJuros.Value;
+    dmDados.tbCReceberValorPago.Value:=dmDados.tbCReceberValor.Value-dbJuros.Value;
 end;
 
-procedure TfrmCReceber.btnlocCliClick(Sender: TObject);
+procedure TFrmCReceber.btnlocCliClick(Sender: TObject);
 begin
   if (dmdados.tbCReceber.State=dsedit)or(dmdados.tbCReceber.State=dsInsert) then
     begin
-    frmLocPac:=tfrmLocPac.Create(application);
-    frmLocPac.ShowModal;
-    dmdados.tbCReceberCodCli.Value:=frmLocPac.Resultado;
-    frmLocPac.Free;
-    end;
-end;
-
-procedure TfrmCReceber.btnLocDocClick(Sender: TObject);
-begin
-  if (dmdados.tbCReceber.State=dsedit)or(dmdados.tbCReceber.State=dsInsert) then
-    begin
-    frmLocTipoDoc:=tfrmLocTipoDoc.create(application);
-    frmLocTipoDoc.showmodal;
-    dmdados.tbCReceberCodDoc.value:=frmlocTipoDoc.resultado;
-    frmLocTipoDoc.Free;
-    end;
-end;
-
-procedure TfrmCReceber.dbParcelaExit(Sender: TObject);
-begin
-  if dbParcela.Value > 1 then
-    begin
-    dbIntervalo.Enabled := True;
-    dbIntervalo.SetFocus;
-    end
-  else
-    begin
-    dbIntervalo.Enabled := False;
-    dbEmissao.SetFocus;
+    frmLocCliente:=tfrmLocCliente.Create(application);
+    frmLocCliente.ShowModal;
+    dmdados.tbCReceberCodCli.Value:=frmloccliente.Resultado;
+    frmloccliente.Free;
     end;
 end;
 

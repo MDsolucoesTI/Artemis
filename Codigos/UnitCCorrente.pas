@@ -1,6 +1,5 @@
 //////////////////////////////////////////////////////////////////////////
 // Criacao...........: 02/2001
-// Ultima modificacao: 03/2007
 // Sistema...........: Artemis - Controle de Financeiro
 // Integracao........: Olimpo - Automacao Comercial
 // Analistas.........: Marilene Esquiavoni & Denny Paulista Azevedo Filho
@@ -8,97 +7,94 @@
 // Copyright.........: Marilene Esquiavoni & Denny Paulista Azevedo Filho
 //////////////////////////////////////////////////////////////////////////
 
-unit UnitCCorrente;
+unit unitCcorrente;
 
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, JvComponent, JvTransBtn, fcLabel, LMDCustomControl, DB, DBTables,
-  LMDCustomPanel, LMDCustomBevelPanel, LMDCustomParentPanel, LMDBackPanel,
-  StdCtrls, JvLabel, EDBTime, fcButton, fcImgBtn, RxLookup, ToolEdit,
-  RXDBCtrl, Mask, DBCtrls, CurrEdit, EMsgDlg, DBUtils, ShellApi, ExtCtrls,
-  JvPanel, JvTransparentPanel, JvEnterTab;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, DBCtrls, fcButton, fcImgBtn, RXSplit, ToolEdit, Mask, RXCtrls,
+  ExtCtrls, SpeedBar, jpeg, RXDBCtrl, RackCtls, CurrEdit, ShellApi, DBTables, DB, DBUtils,
+  RxGrdCpt, fcImager, EMsgDlg, LMDCustomControl, LMDCustomPanel,
+  LMDCustomBevelPanel, LMDCustomParentPanel, LMDBackPanel;
 
 type
   TFrmCCorrente = class(TForm)
-    LMDBackPanel2: TLMDBackPanel;
-    fcLabel2: TfcLabel;
-    LMDBackPanel1: TLMDBackPanel;
-    Panel3: TLMDBackPanel;
-    btnAnterior: TJvTransparentButton;
-    btnUltimo: TJvTransparentButton;
-    btnSair: TJvTransparentButton;
-    btnProximo: TJvTransparentButton;
-    btnPrimeiro: TJvTransparentButton;
-    btnGravar: TJvTransparentButton;
-    btnDeletar: TJvTransparentButton;
-    btnCancelar: TJvTransparentButton;
-    btnAlterar: TJvTransparentButton;
-    dbDtAb: TDBDateEdit;
-    cmblLkBanco: TRxDBLookupCombo;
-    btnCadBanco: TfcImageBtn;
-    dbAgencia: TDBEdit;
-    dbNumConta: TDBEdit;
-    dbTitular: TDBEdit;
-    dbGerente: TDBEdit;
-    dbDtUlMov: TDBDateEdit;
-    dbHora: TEvDBTimeEdit;
-    dbEmail: TDBEdit;
-    DbFax: TDBEdit;
-    DbTel1: TDBEdit;
-    dbInternet: TDBEdit;
-    btnInternt: TfcImageBtn;
-    dbDataCad: TDBDateEdit;
-    BtnEmail: TfcImageBtn;
-    JvLabel1: TJvLabel;
-    JvLabel2: TJvLabel;
-    JvLabel3: TJvLabel;
-    JvLabel4: TJvLabel;
-    JvLabel5: TJvLabel;
-    JvLabel6: TJvLabel;
-    JvLabel7: TJvLabel;
-    JvLabel8: TJvLabel;
-    JvLabel9: TJvLabel;
-    JvLabel11: TJvLabel;
-    JvLabel12: TJvLabel;
-    JvLabel13: TJvLabel;
-    JvLabel14: TJvLabel;
-    JvLabel15: TJvLabel;
-    dbSaldo: TRxDBCalcEdit;
-    dbLimite: TRxDBCalcEdit;
-    JvLabel16: TJvLabel;
-    JvLabel17: TJvLabel;
+    RxGradientCaption2: TRxGradientCaption;
     MsgDlg: TEvMsgDlg;
-    dbDesc: TDBEdit;
-    btnNovo: TJvTransparentButton;
-    JvTransparentPanel1: TJvTransparentPanel;
-    JvTransparentPanel2: TJvTransparentPanel;
-    JvEnterAsTab1: TJvEnterAsTab;
-    procedure btnDescClick(Sender: TObject);
-    procedure btnCadBancoClick(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
-    procedure dbInternetExit(Sender: TObject);
-    procedure dbDtAbExit(Sender: TObject);
-    procedure dbDescExit(Sender: TObject);
-    procedure dbHoraEnter(Sender: TObject);
-    procedure dbAgenciaExit(Sender: TObject);
-    procedure dbNumContaExit(Sender: TObject);
-    procedure dbTitularExit(Sender: TObject);
+    LMDBackPanel2: TLMDBackPanel;
+    Image1: TImage;
+    RxLabel3: TRxLabel;
+    LMDBackPanel1: TLMDBackPanel;
+    RxLabel2: TRxLabel;
+    DBDateEditAbert: TDBDateEdit;
+    RxLabel7: TRxLabel;
+    dbNum: TDBEdit;
+    RxLabel17: TRxLabel;
+    dbTel1: TDBEdit;
+    RxLabel6: TRxLabel;
+    DBtitular: TDBEdit;
+    RxLabel12: TRxLabel;
+    DBEemail: TDBEdit;
+    RxLabel15: TRxLabel;
+    dbEdtCad: TDBDateEdit;
+    fcImageBtn1: TfcImageBtn;
+    RxDBLimite: TRxDBCalcEdit;
+    RxLabel8: TRxLabel;
+    RxLabel1: TRxLabel;
+    RxDBSaldo: TRxDBCalcEdit;
+    DBgerente: TDBEdit;
+    RxLabel10: TRxLabel;
+    dbFax: TDBEdit;
+    RxLabel14: TRxLabel;
+    dbLookBanc: TDBLookupComboBox;
+    RxLabel16: TRxLabel;
+    dbDescr: TDBEdit;
+    RxLabel11: TRxLabel;
+    RxLabel9: TRxLabel;
+    DBedtMov: TDBDateEdit;
+    RxLabel13: TRxLabel;
+    dbHoraMov: TDBEdit;
+    RxLabel4: TRxLabel;
+    DbeConta: TDBEdit;
+    DBAgencia: TDBEdit;
+    RxLabel5: TRxLabel;
+    Panel4: TLMDBackPanel;
+    btnPrimeiro: TfcImageBtn;
+    btnAnterior: TfcImageBtn;
+    btnProximo: TfcImageBtn;
+    btnUltimo: TfcImageBtn;
+    btnNovo: TfcImageBtn;
+    btnGravar: TfcImageBtn;
+    btnCancelar: TfcImageBtn;
+    btnALterar: TfcImageBtn;
+    btnDeletar: TfcImageBtn;
+    btnSair: TfcImageBtn;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    procedure fclEmailClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure DbeContaExit(Sender: TObject);
+    procedure DBAgenciaExit(Sender: TObject);
+    procedure BtnSairClick(Sender: TObject);
+    procedure DBDateEditAbertExit(Sender: TObject);
+    procedure BtnPrimeiroClick(Sender: TObject);
+    procedure BtnAnteriorClick(Sender: TObject);
+    procedure BtnProximoClick(Sender: TObject);
+    procedure BtnUltimoClick(Sender: TObject);
+    procedure BtnNovoClick(Sender: TObject);
+    procedure BtnGravarClick(Sender: TObject);
+    procedure BtnCancelarClick(Sender: TObject);
+    procedure BtnAlterarClick(Sender: TObject);
+    procedure BtnDeletarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure btnPrimeiroClick(Sender: TObject);
-    procedure btnAnteriorClick(Sender: TObject);
-    procedure btnProximoClick(Sender: TObject);
-    procedure btnUltimoClick(Sender: TObject);
-    procedure btnNovoClick(Sender: TObject);
-    procedure btnGravarClick(Sender: TObject);
-    procedure btnCancelarClick(Sender: TObject);
-    procedure btnAlterarClick(Sender: TObject);
-    procedure btnDeletarClick(Sender: TObject);
-    procedure BtnEmailClick(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure dbDescrExit(Sender: TObject);
+    procedure DBtitularExit(Sender: TObject);
+    procedure dbHoraMovEnter(Sender: TObject);
+    procedure DBEemailExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -106,153 +102,396 @@ type
   end;
 
 var
-  FrmCCorrente : TFrmCCorrente;
+  FrmCCorrente: TFrmCCorrente;
+  NovoItem: Boolean;
 
 implementation
 
-uses UnitHistorico, UnitCadBanco, untDmDados, UntPrincipal;
+uses  UnitDmdados, unitPrincipal;
 
-{$R *.dfm}
+{$R *.DFM}
 
-procedure TFrmCCorrente.btnDescClick(Sender: TObject);
+procedure TFrmCCorrente.fclEmailClick(Sender: TObject);
+var
+  url : string;
 begin
-    FrmHistorico := TFrmHistorico.Create(application);
-    FrmHistorico.Show;
-end;
-
-procedure TFrmCCorrente.btnCadBancoClick(Sender: TObject);
-begin
-    FrmCadBanco := TFrmCadBanco.Create(application);
-    frmCadBanco.OutraJan := True;
-    FrmCadBanco.ShowModal;
-end;
-
-procedure TFrmCCorrente.btnSairClick(Sender: TObject);
-begin
-  DmDados.TbCCorrente.Open;
-  Close;
-end;
-
-procedure TFrmCCorrente.dbInternetExit(Sender: TObject);
-begin
-  Panel3.SetFocus;
-end;
-
-procedure TFrmCCorrente.dbDtAbExit(Sender: TObject);
-begin
-  if NovoItem then
-    if dbDtAb.Text = '  /  /    ' then
-      begin
-      MsgDlg.MsgError('� obrigat�rio a DATA INICIAL');
-      dbDtAb.SetFocus;
-      End
-  else
-    begin
-    try
-      StrToDate(dbDtAb.Text);
-    except
-      on EConvertError do
-        begin
-        MsgDlg.MsgError('Data Inv�lida');
-        dbDtAb.SetFocus;
-        end;
-    end;
-  end;
-end;
-
-procedure TFrmCCorrente.dbDescExit(Sender: TObject);
-Var
-  Tabela : TTable;
-begin
-  if NovoItem then
-    begin
-    Tabela              := TTable.Create(Application)      ;
-    Tabela.DatabaseName := dmDados.tbCCorrente.DatabaseName;
-    Tabela.TableName    := dmDados.tbCCorrente.TableName   ;
-    Tabela.IndexName    := dmdados.TbCCorrente.IndexName   ;
-    Tabela.Open;
-    if dbDesc.Text = '' then
-      begin
-      MsgDlg.MsgError('� obrigat�rio a DESCRI��O');
-      dbDesc.SetFocus;
-      end
-    else
-      if Tabela.Locate('Descricao',dbDesc.Text,[]) then
-        if not ((DmDados.tbCCorrente.State=dsEdit) And (dmDados.tbCCorrente.RecNo = Tabela.RecNo)) then
-          begin
-          MsgDlg.MsgWarning('DEDSCRI��O j� Cadastrada');
-          dbDesc.Clear;
-          dbDesc.setfocus;
-          end;
-    Tabela.Free;
-    end;
-end;
-
-procedure TFrmCCorrente.dbHoraEnter(Sender: TObject);
-begin
-  dmDados.TbCCorrenteHoraMov.Value := Now;
-end;
-
-procedure TFrmCCorrente.dbAgenciaExit(Sender: TObject);
-begin
-  if NovoItem then
-    begin
-    if dbDesc.Text = '' then
-      begin
-      MsgDlg.MsgError('� obrigat�rio o Tipo de Conta');
-      dbDesc.SetFocus;
-      end;
-    end;
-end;
-
-procedure TFrmCCorrente.dbNumContaExit(Sender: TObject);
-Var
-  Tabela : TTable;
-begin
-  if NovoItem then
-    begin
-    Tabela              := TTable.Create(Application)      ;
-    Tabela.DatabaseName := dmDados.TbCCorrente.DatabaseName;
-    Tabela.TableName    := dmDados.TbCCorrente.TableName   ;
-    Tabela.IndexName    := dmdados.TbCCorrente.IndexName   ;
-    Tabela.Open;
-    if dbNumConta.Text = '' then
-       begin
-       MsgDlg.MsgError('� obrigat�rio o N�MERO DA CONTA');
-       dbNumConta.SetFocus;
-       end
-    else
-      if Tabela.Locate('Conta',dbNumConta.Text,[]) then
-        if not ((DmDados.TbCCorrente.State=dsEdit) And (dmDados.TbCCorrente.RecNo = Tabela.RecNo)) then
-          begin
-          MsgDlg.MsgWarning('N�MERO DA CONTA j� Cadastrada');
-          dbNumConta.Clear;
-          dbNumConta.setfocus;
-          end;
-    Tabela.Free;
-    end;
-end;
-
-procedure TFrmCCorrente.dbTitularExit(Sender: TObject);
-begin
-  if NovoItem then
-    begin
-    if dbTitular.Text = '' then
-      begin
-      MsgDlg.MsgError('� obrigat�rio o TITULAR');
-      dbTitular.SetFocus;
-      end;
-    end;
+  url :='mailto:'+dmdados.TbCCorrenteEMail.Value;
+  shellexecute(0, 'open',Pchar(url), nil, nil, sw_showNormal);
 end;
 
 procedure TFrmCCorrente.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
   FrmPrincipal.StatusTeclas(False,'');
-  dmDados.TbCCorrente.Close;
-  dmDados.TbMovConta.Close;
-  dmDados.tbBanco.Close;
-  Action := Cafree;
+  Action:= Cafree;
+end;
+
+procedure TFrmCCorrente.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  If Key=#13 Then
+    Begin
+    Key:=#0;
+    Perform(wm_nextdlgctl,0,0);
+    End;
+end;
+
+procedure TFrmCCorrente.DbeContaExit(Sender: TObject);
+Var
+  Tabela: TTable;
+begin
+  If NovoItem Then
+    Begin
+    Tabela := TTable.Create(Application);
+    Tabela.DatabaseName := dmDados.TbCCorrente.DatabaseName;
+    Tabela.TableName := dmDados.TbCCorrente.TableName;
+    Tabela.IndexName := dmdados.TbCCorrente.IndexName;
+    Tabela.Open;
+    If DbeConta.Text= '' then
+       begin
+       MsgDlg.MsgError('� obrigat�rio o N�MERO DA CONTA');
+       DbeConta.SetFocus;
+       end
+    else
+      If Tabela.Locate('Conta',DbeConta.Text,[]) Then
+        If not ((DmDados.TbCCorrente.State=dsEdit) And (dmDados.TbCCorrente.RecNo = Tabela.RecNo)) Then
+          Begin
+          MsgDlg.MsgWarning('N�MERO DA CONTA j� Cadastrada');
+          DbeConta.Clear;
+          DbeConta.setfocus;
+          End;
+    Tabela.Free;
+    End;
+end;
+
+procedure TFrmCCorrente.DBAgenciaExit(Sender: TObject);
+begin
+  If NovoItem Then
+    Begin
+    If DBAgencia.Text= '' then
+      Begin
+      MsgDlg.MsgError('� obrigat�rio a AG�NCIA');
+      DBAgencia.SetFocus;
+      End;
+    end;
+end;
+
+procedure TFrmCCorrente.BtnSairClick(Sender: TObject);
+begin
+  if (DmDados.TbCCorrente.State=dsEdit) or (DmDados.TbCCorrente.State=dsInsert) then
+    DmDados.TbCCorrente.Cancel;
+  Close;
+end;
+
+procedure TFrmCCorrente.DBDateEditAbertExit(Sender: TObject);
+begin
+  if NovoItem then
+    if DBDateEditAbert.Text= '  /  /    ' then
+      begin
+      MsgDlg.MsgError('� obrigat�rio a DATA INICIAL');
+      DBDateEditAbert.SetFocus;
+      End
+  else
+    begin
+    try
+      StrToDate(DBDateEditAbert.Text);
+    except
+      on EConvertError do
+        begin
+        MsgDlg.MsgError('Data Inv�lida');
+        DBDateEditAbert.SetFocus;
+        end;
+    end;
+    end;
+end;
+
+procedure TFrmCCorrente.BtnPrimeiroClick(Sender: TObject);
+begin
+  dmdados.tbCCorrente.First;
+  btnPrimeiro.Enabled:=False;
+  btnAnterior.Enabled:=False;
+  btnProximo.Enabled:=True;
+  btnUltimo.Enabled:=True;
+  dmDados.vTabStt:=True;
+end;
+
+procedure TFrmCCorrente.BtnAnteriorClick(Sender: TObject);
+begin
+  dmdados.tbCCorrente.Prior;
+  btnProximo.Enabled:=True;
+  btnUltimo.Enabled:=True;
+  if dmdados.TbCCorrente.bof then
+    begin
+    btnPrimeiro.Enabled:=False;
+    btnAnterior.Enabled:=False;
+    end;
+  dmDados.vTabStt:=True;
+end;
+
+procedure TFrmCCorrente.BtnProximoClick(Sender: TObject);
+begin
+  dmdados.tbCCorrente.next;
+  btnPrimeiro.Enabled:=True;
+  btnAnterior.Enabled:=True;
+  If dmdados.tbCCorrente.Eof Then
+    Begin
+    btnProximo.Enabled:=False;
+    btnUltimo.Enabled:=False;
+    end;
+  dmDados.vTabStt:=True;
+end;
+
+procedure TFrmCCorrente.BtnUltimoClick(Sender: TObject);
+begin
+  dmdados.tbCCorrente.Last;
+  btnPrimeiro.Enabled:=True;
+  btnAnterior.Enabled:=True;
+  btnProximo.Enabled:=False;
+  btnUltimo.Enabled:=False;
+  dmDados.vTabStt:=True;
+end;
+
+procedure TFrmCCorrente.BtnNovoClick(Sender: TObject);
+begin
+  novoitem:=true;
+  dmDados.vTabStt:=False;
+  dmdados.tbCCorrente.Append;
+  {habilitando os bot�es}
+  BtnGravar.Enabled := true;
+  BtnCancelar.Enabled:=true;
+  BtnNovo.Enabled:=False;
+  BtnPrimeiro.Enabled:=False;
+  BtnAnterior.Enabled:=False;
+  BtnProximo.Enabled:=False;
+  BtnUltimo.Enabled:=False;
+  BtnAlterar.Enabled:=False;
+  BtnDeletar.Enabled:=False;
+  {habilitando os componentes}
+  DbDateEditAbert.Enabled:= true;
+  DbDescr.Enabled:= True;
+  DbLookBanc.Enabled:=True;
+  dbAgencia.Enabled:=true;
+  dbeconta.Enabled:=true;
+  dbTel1.Enabled:=True;
+  dbFax.Enabled:=True;
+  dbGerente.Enabled:=true;
+  dbTitular.Enabled:=True;
+  RXdbLimite.Enabled:=true;
+  RXdbSaldo.Enabled:=true;
+  dbeEmail.Enabled:=True;
+  dmDados.TbCCorrenteHoraMov.Value:=Now;
+  DbDateEditAbert.SetFocus;
+end;
+
+procedure TFrmCCorrente.BtnGravarClick(Sender: TObject);
+Var
+  Campos:String;
+  Vazio,Gravar:Boolean;
+  Tabela: TTable;
+begin
+  Campos:='';
+  Gravar:=True;
+  Vazio:=False;
+  Tabela := TTable.Create(Application);
+  Tabela.DatabaseName := dmDados.TbCCorrente.DatabaseName;
+  Tabela.TableName := dmDados.TbCCorrente.TableName;
+  Tabela.IndexName := dmdados.TbCCorrente.IndexName;
+  Tabela.Open;
+  //Campo que n�o pode repetir
+  If DbeConta.Text= '' then
+    begin
+    If Length(Campos)>0 Then Campos:=Campos+', ';
+    Campos:=Campos+'N�mero da Conta';
+    Gravar:=False;
+    Vazio:=True;
+    end
+  else
+    If Tabela.Locate('Conta',DbeConta.Text,[]) Then
+      If Not((DmDados.TbCCorrente.State=dsEdit) And (dmDados.TbCCorrente.RecNo = Tabela.RecNo)) Then
+        Begin
+       	Gravar:=False;
+        MsgDlg.MsgWarning('N�mero da Conta j� Cadastrado');
+        End;
+  If DBDescr.Text= '' then
+    begin
+    If Length(Campos)>0 Then Campos:=Campos+', ';
+    Campos:=Campos+'Descri��o';
+    Gravar:=False;
+    Vazio:=True;
+    end
+  else
+    If Tabela.Locate('Descricao',dbDescr.Text,[]) Then
+      If Not((DmDados.TbCCorrente.State=dsEdit) And (dmDados.TbCCorrente.RecNo = Tabela.RecNo)) Then
+        Begin
+       	Gravar:=False;
+        MsgDlg.MsgWarning('Descri��o j� Cadastrada');
+        End;
+  //Campo que n�o pode estar vazio
+  If DBtitular.Text= '' then
+    begin
+    If Length(Campos)>0 Then Campos:=Campos+', ';
+    Campos:=Campos+'Titular';
+    Gravar:=False;
+    Vazio:=True;
+    end;
+  If DBAgencia.Text= '' then
+    begin
+    If Length(Campos)>0 Then Campos:=Campos+', ';
+    Campos:=Campos+'Ag�ncia';
+    Gravar:=False;
+    Vazio:=True;
+    end;
+  //Campo Data n�o podendo ser vazio
+  If DBDateEditAbert.Text= '  /  /    ' then
+    Begin
+    If Length(Campos)>0 Then Campos:=Campos+', ';
+    Campos:=Campos+'Data de Abertura';
+    Gravar:=False;
+    Vazio:=True;
+    End;
+  If dbLookBanc.Text= '' then
+    Begin
+    if Length(campos)>0 then campos:=campos+', ';
+    campos:=campos+'BANCO';
+    gravar:=false;
+    vazio:=true;
+    End;
+  if (DBDateEditAbert.text <> '') then
+    try StrToDate(DBDateEditAbert.text)
+    except on EConvertError do
+      begin
+      MsgDlg.MsgError('Data de Abertura Inv�lida');
+      gravar:=false;
+      end;
+    end;
+  If Gravar Then
+    Begin
+    NovoItem:=False;
+    dmDados.vTabStt:=True;
+    //lan�a o primeiro movimento ref. a cadastro
+    dmdados.tbCCorrente.Post;
+    dmDados.TbMovConta.Append;
+    dmdados.TbMovContaTipoOper.Value:='E';
+    dmdados.TbMovContaNumAgencia.Value:=dmdados.TbCCorrenteNumAgencia.Value;
+    dmdados.TbMovContaConta.Value:=dmdados.TbCCorrenteConta.Value;
+    dmdados.TbMovContaCodHist.Value:='2';
+    dmdados.TbMovContaComplHist.Value:='ABERTURA/CRIA��O DA CONTA';
+    dmdados.TbMovContaDataMov.Value:=dmdados.TbCCorrenteDataCad.Value;
+    dmDados.TbMovContaValor.Value:=dmdados.TbCCorrenteSaldo.Value;
+    dmDados.TbMovContaDataReg.Value:=dmDados.TbCCorrenteUltMov.Value;
+    dmdados.TbMovContaHoraReg.Value:=StrToTime('00:00:00');
+    dmdados.TbMovConta.Post;
+    BtnGravar.enabled := False;
+    BtnCancelar.Enabled := False;
+    BtnNovo.Enabled:=True;
+    BtnPrimeiro.Enabled:=True;
+    BtnAnterior.Enabled:=True;
+    BtnProximo.Enabled:=True;
+    BtnUltimo.Enabled:=True;
+    BtnAlterar.Enabled:=True;
+    Btndeletar.Enabled:=True;
+    {desabilitando os componentes}
+    DbDateEditAbert.Enabled:= False;
+    DbDescr.Enabled:= False;
+    DbLookBanc.Enabled:=False;
+    dbAgencia.Enabled:=False;
+    dbeconta.Enabled:=False;
+    dbTel1.Enabled:=False;
+    dbFax.Enabled:=False;
+    dbGerente.Enabled:=False;
+    dbTitular.Enabled:=False;
+    RXdbLimite.Enabled:=False;
+    RXdbSaldo.Enabled:=False;
+    dbeEmail.Enabled:=False;
+    MsgDlg.MsgInformation('Dados gravados com sucesso!');
+    Panel4.SetFocus;
+    End
+  Else
+    Begin
+    If Vazio Then
+      MsgDlg.MsgWarning('O(s) Campo(s) '+Campos+' n�o tem Valor(es) ');
+    DbDateEditAbert.SetFocus;
+    end;
+  Tabela.Free;
+end;
+
+procedure TFrmCCorrente.BtnCancelarClick(Sender: TObject);
+begin
+  NovoItem:=False;
+  dmDados.vTabStt:=True;
+  dmdados.tbCCorrente.cancel;
+  BtnGravar.enabled := false;
+  BtnCancelar.Enabled := false;
+  BtnNovo.Enabled:=True;
+  BtnPrimeiro.Enabled:=True;
+  BtnAnterior.Enabled:=True;
+  Btnproximo.Enabled:=True;
+  BtnUltimo.Enabled:=True;
+  BtnAlterar.Enabled:=True;
+  BtnDeletar.Enabled:=True;
+  DbDateEditAbert.SetFocus;
+  {desabilitando os componentes}
+  DbDateEditAbert.Enabled:= False;
+  DbDescr.Enabled:= False;
+  DbLookBanc.Enabled:=False;
+  dbAgencia.Enabled:=False;
+  dbeconta.Enabled:=False;
+  dbTel1.Enabled:=False;
+  dbFax.Enabled:=False;
+  dbGerente.Enabled:=False;
+  dbTitular.Enabled:=False;
+  RXdbLimite.Enabled:=False;
+  RXdbSaldo.Enabled:=False;
+  dbeEmail.Enabled:=False;
+  Panel4.SetFocus;
+end;
+
+procedure TFrmCCorrente.BtnAlterarClick(Sender: TObject);
+begin
+  if dmdados.tbCCorrente.RecordCount=0 then
+    begin
+    MsgDlg.MsgInformation('Tabela sem registro');
+    end
+  else
+    begin
+    NovoItem:=True;
+    dmDados.vTabStt:=False;
+    dmdados.tbCCorrente.Edit;
+    BtnCancelar.enabled:= true;
+    BtnGravar.Enabled:= true;
+    BtnNovo.Enabled:=False;
+    BtnPrimeiro.Enabled:=False;
+    BtnAnterior.Enabled:=False;
+    BtnProximo.Enabled:=False;
+    BtnUltimo.Enabled:=False;
+    BtnAlterar.Enabled:=False;
+    Btndeletar.Enabled:=False;
+    {habilitando os componentes}
+    DbDateEditAbert.Enabled:= true;
+    DbDescr.Enabled:= True;
+    DbLookBanc.Enabled:=True;
+    dbAgencia.Enabled:=true;
+    dbeconta.Enabled:=true;
+    dbTel1.Enabled:=True;
+    dbFax.Enabled:=True;
+    dbGerente.Enabled:=true;
+    dbTitular.Enabled:=True;
+    RXdbLimite.Enabled:=true;
+    RXdbSaldo.Enabled:=true;
+    dbeEmail.Enabled:=True;
+    DbDateEditAbert.SetFocus;
+    end;
+end;
+
+procedure TFrmCCorrente.BtnDeletarClick(Sender: TObject);
+begin
+  if dmdados.tbCCorrente.RecordCount=0 then
+    MsgDlg.MsgInformation('Tabela sem registro')
+  else
+    If MsgDlg.MsgConfirmation('Tem certeza que deseja exluir esse registro?') = id_yes then
+      if dmDados.TbMovConta.Locate('NumAgencia;Conta',VarArrayOf([dmDados.TbCCorrenteNumAgencia.Value,dmDados.TbCCorrenteConta.Value]),[]) then
+        MsgDlg.MsgWarning('CONTA CORRENTE ativa, n�o pode ser excluida !!!')
+      Else
+        dmdados.tbCCorrente.Delete;
 end;
 
 procedure TFrmCCorrente.FormKeyDown(Sender: TObject; var Key: Word;
@@ -267,353 +506,77 @@ begin
       VK_End    : if not(dmDados.vTabStt) then BtnGravar.Click;
       VK_ESCAPE : if not(dmDados.vTabStt) then BtnCancelar.Click
                   else BtnSair.Click;
-      VK_F2     : btnCadBanco.Click;
     end;
 end;
 
-procedure TFrmCCorrente.btnPrimeiroClick(Sender: TObject);
+procedure TFrmCCorrente.FormShow(Sender: TObject);
 begin
-  dmdados.tbCCorrente.First;
-  btnPrimeiro.Enabled := False;
-  btnAnterior.Enabled := False;
-  btnProximo.Enabled  := True ;
-  btnUltimo.Enabled   := True ;
-  dmDados.vTabStt     := True ;
-end;
-
-procedure TFrmCCorrente.btnAnteriorClick(Sender: TObject);
-begin
-  dmdados.tbCCorrente.Prior;
-  btnProximo.Enabled := True;
-  btnUltimo.Enabled  := True;
-  if dmdados.TbCCorrente.bof then
+  dmDados.vTabStt:=True;
+  NovoItem:= false;
+  FrmPrincipal.StatusTeclas(True,'[Insert] Novo [Home] Alterar [End] Gravar [Delete] Excluir [Esc] Cancelar ou Sair');
+  if dmdados.TbCCorrente.RecordCount=0 then
     begin
-    btnPrimeiro.Enabled := False;
-    btnAnterior.Enabled := False;
+    Btnprimeiro.Enabled:=False;
+    BtnAnterior.Enabled:=False;
+    BtnProximo.Enabled:=false;
+    BtnUltimo.Enabled:=false;
+    btnGravar.Enabled:=false;
+    btnAlterar.Enabled:=false;
+    btnCancelar.Enabled:=false;
+    btnDeletar.Enabled:=false;
     end;
-  dmDados.vTabStt    := True;
 end;
 
-procedure TFrmCCorrente.btnProximoClick(Sender: TObject);
-begin
-  dmdados.tbCCorrente.next;
-  btnPrimeiro.Enabled := True;
-  btnAnterior.Enabled := True;
-  if dmdados.tbCCorrente.Eof then
-    begin
-    btnProximo.Enabled := False;
-    btnUltimo.Enabled  := False;
-    end;
-  dmDados.vTabStt     := True;
-end;
-
-procedure TFrmCCorrente.btnUltimoClick(Sender: TObject);
-begin
-  dmdados.tbCCorrente.Last;
-  btnPrimeiro.Enabled := True ;
-  btnAnterior.Enabled := True ;
-  btnProximo.Enabled  := False;
-  btnUltimo.Enabled   := False;
-  dmDados.vTabStt     := True ;
-end;
-
-procedure TFrmCCorrente.btnNovoClick(Sender: TObject);
-begin
-  dmDados.tbCCorrente.Append;
-  NovoItem            := True ;
-  dmDados.vTabStt     := False;
-  {habilitando os bot�es}
-  BtnEmail.Enabled    := True ;
-  btnInternt.Enabled  := True ;
-  btnCadBanco.Enabled := True ;
-  BtnGravar.Enabled   := True ;
-  BtnCancelar.Enabled := True ;
-  BtnNovo.Enabled     := False;
-  BtnPrimeiro.Enabled := False;
-  BtnAnterior.Enabled := False;
-  BtnProximo.Enabled  := False;
-  BtnUltimo.Enabled   := False;
-  BtnAlterar.Enabled  := False;
-  BtnDeletar.Enabled  := False;
-  {habilitando os componentes}
-  dbDtAb.Enabled      := True ;
-  dbDesc.Enabled      := True ;
-  cmblLkBanco.Enabled := True ;
-  dbAgencia.Enabled   := True ;
-  dbNumConta.Enabled  := True ;
-  dbTitular.Enabled   := True ;
-  dbLimite.Enabled    := True ;
-  dbSaldo.Enabled     := True ;
-  dbGerente.Enabled   := True ;
-  dbDtUlMov.Enabled   := True ;
-  dbHora.Enabled      := True ;
-  dbTel1.Enabled      := True ;
-  dbFax.Enabled       := True ;
-  dbEmail.Enabled     := True ;
-  dbInternet.Enabled  := True ;
-  dmDados.TbCCorrenteHoraMov.Value := Now;
-  dbDtAb.SetFocus;
-end;
-
-procedure TFrmCCorrente.btnGravarClick(Sender: TObject);
+procedure TFrmCCorrente.dbDescrExit(Sender: TObject);
 Var
-  Campos : String ;
-  Vazio  : Boolean;
-  Gravar : Boolean;
-  Tabela : TTable ;
+  Tabela: TTable;
 begin
-  Campos              := ''                              ;
-  Gravar              := True                            ;
-  Vazio               := False                           ;
-  Tabela              := TTable.Create(Application)      ;
-  Tabela.DatabaseName := dmDados.TbCCorrente.DatabaseName;
-  Tabela.TableName    := dmDados.TbCCorrente.TableName   ;
-  Tabela.IndexName    := dmdados.TbCCorrente.IndexName   ;
-  Tabela.Open;
-  //Campo que n�o pode repetir
-  if dbNumConta.Text = '' then
+  if NovoItem then
     begin
-    if Length(Campos) > 0 then Campos := Campos+', ';
-    Campos := Campos+'N�mero da Conta';
-    Gravar := False                   ;
-    Vazio  := True                    ;
-    end
-  else
-    if Tabela.Locate('Conta',dbNumConta.Text,[]) then
-      if Not((DmDados.TbCCorrente.State=dsEdit) And (dmDados.TbCCorrente.RecNo = Tabela.RecNo)) then
-        begin
-       	Gravar := False;
-        MsgDlg.MsgWarning('N�mero da Conta j� Cadastrado');
-        end;
-  if dbDesc.Text = '' then
-    begin
-    if Length(Campos) > 0 then Campos := Campos+', ';
-    Campos := Campos+'Descri��o';
-    Gravar := False             ;
-    Vazio  := True              ;
-    end
-  else
-    if Tabela.Locate('Descricao',dbDesc.Text,[]) then
-      if Not((DmDados.TbCCorrente.State=dsEdit) And (dmDados.TbCCorrente.RecNo = Tabela.RecNo)) then
-        begin
-       	Gravar := False;
-        MsgDlg.MsgWarning('Descri��o j� Cadastrada');
-        end;
-  //Campo que n�o pode estar vazio
-  if dbTitular.Text = '' then
-    begin
-    If Length(Campos) > 0 then Campos := Campos+', ';
-    Campos := Campos+'Titular';
-    Gravar := False           ;
-    Vazio  := True            ;
-    end;
-  if dbAgencia.Text = '' then
-    begin
-    if Length(Campos) > 0 Then Campos := Campos+', ';
-    Campos := Campos+'Ag�ncia';
-    Gravar := False           ;
-    Vazio  := True            ;
-    end;
-  //Campo Data n�o podendo ser vazio
-  if dbDtAb.Text= '  /  /    ' then
-    begin
-    if Length(Campos) > 0 then Campos := Campos+', ';
-    Campos := Campos+'Data de Abertura';
-    Gravar := False                    ;
-    Vazio  := True                     ;
-    end;
-  if cmblLkBanco.Text = '' then
-    begin
-    if Length(campos) > 0 then Campos := Campos+', ';
-    Campos := Campos+'BANCO';
-    Gravar := False         ;
-    Vazio  := True          ;
-    End;
-  if (dbDtAb.text <> '') then
-    try StrToDate(dbDtAb.text)
-    except on EConvertError do
+    Tabela := TTable.Create(Application);
+    Tabela.DatabaseName := dmDados.tbCCorrente.DatabaseName;
+    Tabela.TableName := dmDados.tbCCorrente.TableName;
+    Tabela.IndexName := dmdados.TbCCorrente.IndexName;
+    Tabela.Open;
+    if dbDescr.Text= '' then
       begin
-      MsgDlg.MsgError('Data de Abertura Inv�lida');
-      Gravar := False;
-      end;
-    end;
-  if Gravar then
-    begin
-    dmdados.tbCCorrente.Post;
-    //lan�a o primeiro movimento ref. a cadastro
-    if Not (dmDados.TbMovConta.Locate('NumAgencia;Conta',
-       VarArrayOf([dmDados.TbCCorrenteNumAgencia.Value,dmDados.TbCCorrenteConta.Value]),[])) then
-      begin
-      dmDados.TbMovConta.Append;
-      dmdados.TbMovContaTipoOper.Value:='E';
-      dmdados.TbMovContaNumAgencia.Value:=dmdados.TbCCorrenteNumAgencia.Value;
-      dmdados.TbMovContaConta.Value:=dmdados.TbCCorrenteConta.Value;
-      dmdados.TbMovContaCodHist.Value:='2';
-      dmdados.TbMovContaComplHist.Value:='ABERTURA/CRIA��O DA CONTA';
-      dmdados.TbMovContaDataMov.Value:=dmdados.TbCCorrenteDataCad.Value;
-      dmDados.TbMovContaValor.Value:=dmdados.TbCCorrenteSaldo.Value;
-      dmDados.TbMovContaDataReg.Value:=dmDados.TbCCorrenteUltMov.Value;
-      dmdados.TbMovContaHoraReg.Value:=StrToTime('00:00:00');
-      dmdados.TbMovConta.Post;
-      end;
-    NovoItem            := False;
-    dmDados.vTabStt     := True ;
-    btnCadBanco.Enabled := False;
-    BtnEmail.Enabled    := False;
-    btnInternt.Enabled  := False;
-    BtnGravar.enabled   := False;
-    BtnCancelar.Enabled := False;
-    BtnNovo.Enabled     := True ;
-    BtnPrimeiro.Enabled := True ;
-    BtnAnterior.Enabled := True ;
-    BtnProximo.Enabled  := True ;
-    BtnUltimo.Enabled   := True ;
-    BtnAlterar.Enabled  := True ;
-    Btndeletar.Enabled  := True ;
-    {desabilitando os componentes}
-    dbDtAb.Enabled      := False;
-    dbDesc.Enabled      := False;
-    cmblLkBanco.Enabled := False;
-    dbAgencia.Enabled   := False;
-    dbNumConta.Enabled  := False;
-    dbTel1.Enabled      := False;
-    dbFax.Enabled       := False;
-    dbGerente.Enabled   := False;
-    dbDtUlMov.Enabled   := False;
-    dbHora.Enabled      := False;
-    dbTitular.Enabled   := False;
-    dbLimite.Enabled    := False;
-    dbSaldo.Enabled     := False;
-    dbEmail.Enabled     := False;
-    MsgDlg.MsgInformation('Dados gravados com sucesso!');
-    Panel3.SetFocus;
-    end
-  else
-    begin
-    if Vazio then
-      MsgDlg.MsgWarning('O(s) Campo(s) '+Campos+' n�o tem Valor(es) ');
-    dbDtAb.SetFocus;
-    end;
-  Tabela.Free;
-end;
-
-procedure TFrmCCorrente.btnCancelarClick(Sender: TObject);
-begin
-  dmDados.tbCCorrente.cancel;
-  NovoItem            := False;
-  dmDados.vTabStt     := True ;
-  btnCadBanco.Enabled := False;
-  BtnEmail.Enabled    := False;
-  btnInternt.Enabled  := False;
-  BtnGravar.enabled   := False;
-  BtnCancelar.Enabled := False;
-  BtnNovo.Enabled     := True ;
-  BtnPrimeiro.Enabled := True ;
-  BtnAnterior.Enabled := True ;
-  Btnproximo.Enabled  := True ;
-  BtnUltimo.Enabled   := True ;
-  BtnAlterar.Enabled  := True ;
-  BtnDeletar.Enabled  := True ;
-  {desabilitando os componentes}
-  dbDtAb.Enabled      := False;
-  dbDesc.Enabled      := False;
-  cmblLkBanco.Enabled := False;
-  dbAgencia.Enabled   := False;
-  dbNumConta.Enabled  := False;
-  dbTel1.Enabled      := False;
-  dbFax.Enabled       := False;
-  dbGerente.Enabled   := False;
-  dbDtUlMov.Enabled   := False;
-  dbHora.Enabled      := False;
-  dbTitular.Enabled   := False;
-  dbLimite.Enabled    := False;
-  dbSaldo.Enabled     := False;
-  dbEmail.Enabled     := False;
-  Panel3.SetFocus;
-end;
-
-procedure TFrmCCorrente.btnAlterarClick(Sender: TObject);
-begin
-  if dmdados.tbCCorrente.RecordCount = 0 then
-    begin
-    MsgDlg.MsgInformation('Tabela sem registro');
-    end
-  else
-    begin
-    dmDados.tbCCorrente.Edit;
-    NovoItem            := True ;
-    dmDados.vTabStt     := False;
-    btnCadBanco.Enabled := True ;
-    BtnEmail.Enabled    := True ;
-    btnInternt.Enabled  := True ;
-    BtnCancelar.enabled := True ;
-    BtnGravar.Enabled   := True ;
-    BtnNovo.Enabled     := False;
-    BtnPrimeiro.Enabled := False;
-    BtnAnterior.Enabled := False;
-    BtnProximo.Enabled  := False;
-    BtnUltimo.Enabled   := False;
-    BtnAlterar.Enabled  := False;
-    Btndeletar.Enabled  := False;
-    {habilitando os componentes}
-    dbDtAb.Enabled      := True ;
-    DbDesc.Enabled      := True ;
-    cmblLkBanco.Enabled := True ;
-    dbAgencia.Enabled   := True ;
-    dbNumConta.Enabled  := True ;
-    dbTel1.Enabled      := True ;
-    dbFax.Enabled       := True ;
-    dbGerente.Enabled   := True ;
-    dbDtUlMov.Enabled   := True ;
-    dbHora.Enabled      := True ;
-    dbTitular.Enabled   := True ;
-    dbLimite.Enabled    := True ;
-    dbSaldo.Enabled     := True ;
-    dbEmail.Enabled     := True ;
-    dbDtAb.SetFocus;
+      MsgDlg.MsgError('� obrigat�rio a DESCRI��O');
+      dbDescr.SetFocus;
+      end
+    else
+      if Tabela.Locate('Descricao',dbDescr.Text,[]) Then
+        If not ((DmDados.tbCCorrente.State=dsEdit) And (dmDados.tbCCorrente.RecNo = Tabela.RecNo)) Then
+          Begin
+          MsgDlg.MsgWarning('DEDSCRI��O j� Cadastrada');
+          dbDescr.Clear;
+          dbDescr.setfocus;
+          End;
+    Tabela.Free;
     end;
 end;
 
-procedure TFrmCCorrente.btnDeletarClick(Sender: TObject);
+procedure TFrmCCorrente.DBtitularExit(Sender: TObject);
 begin
-  if dmdados.tbCCorrente.RecordCount=0 then
-    MsgDlg.MsgInformation('Tabela sem registro')
-  else
-    if MsgDlg.MsgConfirmation('Tem certeza que deseja exluir esse registro?') = id_yes then
-      if dmDados.TbMovConta.Locate('NumAgencia;Conta',VarArrayOf([dmDados.TbCCorrenteNumAgencia.Value,dmDados.TbCCorrenteConta.Value]),[]) then
-        MsgDlg.MsgWarning('CONTA CORRENTE ativa, n�o pode ser excluida !!!')
-      else
-        dmdados.tbCCorrente.Delete;
-end;
-
-procedure TFrmCCorrente.BtnEmailClick(Sender: TObject);
-var
- url : string;
-begin
-  url := 'mailto:'+dmdados.TbCCorrenteEMail.Value;
-  if dmDados.TbCCorrenteEMail.Value <> '' then
-    shellexecute(0, 'open',Pchar(url), nil, nil, sw_showNormal);
-end;
-
-procedure TFrmCCorrente.FormActivate(Sender: TObject);
-begin
-  dmDados.TbCCorrente.Open;
-  dmDados.tbBanco.Open;
-  dmDados.TbMovConta.Open;
-  dmDados.vTabStt := True ;
-  NovoItem        := False;
-  FrmPrincipal.StatusTeclas(True,'[Insert] Novo [Home] Alterar [End] Gravar [F2] Banco [Delete] Excluir [Esc] Cancelar ou Sair');
-  if dmdados.TbCCorrente.RecordCount = 0 then
-    begin
-    Btnprimeiro.Enabled := False;
-    BtnAnterior.Enabled := False;
-    BtnProximo.Enabled  := False;
-    BtnUltimo.Enabled   := False;
-    btnGravar.Enabled   := False;
-    btnAlterar.Enabled  := False;
-    btnCancelar.Enabled := False;
-    btnDeletar.Enabled  := False;
+  If NovoItem Then
+    Begin
+    If DBtitular.Text= '' then
+      Begin
+      MsgDlg.MsgError('� obrigat�rio o TITULAR');
+      DBtitular.SetFocus;
+      End;
     end;
+end;
+
+procedure TFrmCCorrente.dbHoraMovEnter(Sender: TObject);
+begin
+  dmDados.TbCCorrenteHoraMov.Value:=Now;
+end;
+
+procedure TFrmCCorrente.DBEemailExit(Sender: TObject);
+begin
+  Panel4.SetFocus;
 end;
 
 end.
+
+
